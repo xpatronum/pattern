@@ -1,0 +1,23 @@
+index:
+  max_seq_len: 128
+  batch_size: 64
+  index_name: SxopeDiseaseTune
+  load_model_path: weights/index
+  load_dataset_path: dataset/index.csv
+
+train:
+  index_name: "SxopeDiseaseTune"
+  dataset_path: dataset
+  loss: triplet
+  loss_props: null
+  batch_size: 64
+  early_stopping:
+    metric: DistanceAcc
+    size: 100
+    mode: max
+  max_epochs: 15
+  log_every_n_steps: 10
+  save_top_k: 2
+  devices: auto
+  val_check_interval: 30
+  save_model_path: weights/index
